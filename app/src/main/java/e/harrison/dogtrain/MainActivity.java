@@ -36,9 +36,12 @@ public class MainActivity extends AppCompatActivity {
 
         sitCounter.setText(counterUpdate);
 
-        Intent sendClickCount = new Intent();
-        sendClickCount.putExtra(counterUpdate,counterUpdated);
+        Intent sendClickCount = new Intent(MainActivity.this,TrainingLog.class);
+        sendClickCount.putExtra("counterUpdate",counterUpdate);
+
     }
+
+
 
     View.OnClickListener goodDogOnClickListener = new View.OnClickListener() {
         @Override
@@ -53,8 +56,18 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onClick(View view) {
 
+            Toast.makeText(getApplicationContext(), "Whistle button works!",
+                    Toast.LENGTH_LONG).show();
+
+            Intent trainingLogStart = new Intent(MainActivity.this,TrainingLog.class);
+            MainActivity.this.startActivity(trainingLogStart);
+
+
         }
     };
+
+
+
 
 
     }
